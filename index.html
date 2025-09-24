@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Priscila Veiculos - Seu carro novo está aqui</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Nova paleta de cores: Preto Absoluto + Rosa Fúcsia */
+    :root {
+      --preto-absoluto: #000000;
+      --rosa-fucsia: #e91e63;
+      --rosa-claro: #f8bbd9;
+      --cinza-medio: #444444;
+      --branco: #ffffff;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif; /* Corpo: Montserrat para modernidade e legibilidade */
+      background-color: var(--preto-absoluto);
+      color: var(--branco);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: var(--branco);
+      text-decoration: none;
+      font-weight: 500; /* Ajustado para Montserrat */
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--rosa-fucsia);
+    }
+
+    header {
+      background-color: var(--preto-absoluto);
+      color: var(--branco);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 5px rgba(233, 30, 99, 0.3); /* Sombra com rosa fúcsia */
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      max-width: 200px;
+      height: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      font-family: 'Raleway', sans-serif; /* Nav: Raleway para classe e clean */
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.25rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav ul li a:hover,
+    nav ul li a:focus {
+      border-bottom: 2px solid var(--rosa-fucsia);
+      color: var(--rosa-fucsia);
+    }
+
+    .horario-atendimento {
+      background-color: var(--rosa-claro); /* Fundo rosa claro para sutileza */
+      text-align: center;
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
+      color: var(--preto-absoluto); /* Texto escuro no fundo claro para contraste */
+      width: 100%;
+      margin-top: 0.5rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .horario-atendimento i {
+      color: var(--rosa-fucsia); /* Ícone em rosa fúcsia */
+      margin-right: 0.5rem;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero {
+      background-color: var(--preto-absoluto);
+      color: var(--branco);
+      padding: 4rem 2rem;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 10px rgba(233, 30, 99, 0.3); /* Sombra com rosa fúcsia */
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif; /* Títulos: Playfair para elegância e feminilidade */
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      color: var(--rosa-fucsia); /* Título em rosa fúcsia */
+    }
+
+    .hero p {
+      font-family: 'Montserrat', sans-serif; /* Parágrafo em Montserrat */
+      font-size: 1.25rem;
+      font-weight: 600;
+      font-style: italic;
+      letter-spacing: 0.05em;
+      color: var(--branco);
+    }
+
+    .car-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .car-card {
+      background-color: var(--cinza-medio); /* Fundo cinza médio para apoio */
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(233, 30, 99, 0.1); /* Sombra sutil com rosa fúcsia */
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .car-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(233, 30, 99, 0.2); /* Hover com rosa fúcsia */
+    }
+
+    .car-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background-color: var(--preto-absoluto); /* Fundo preto absoluto para imagens */
+    }
+
+    .car-info {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .car-info h3 {
+      font-family: 'Raleway', sans-serif; /* Títulos de cards: Raleway para modernidade */
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--rosa-fucsia); /* Títulos em rosa fúcsia */
+    }
+
+    .car-details {
+      font-family: 'Montserrat', sans-serif; /* Detalhes em Montserrat */
+      font-size: 0.9rem;
+      color: var(--branco);
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+
+    .car-price {
+      font-family: 'Playfair Display', serif; /* Preços em Playfair para impacto */
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--rosa-fucsia); /* Preços em rosa fúcsia */
+      margin-bottom: 1rem;
+    }
+
+    .btn-details {
+      background-color: var(--rosa-fucsia); /* Botões em rosa fúcsia */
+      color: var(--branco); /* Texto branco para contraste */
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-block;
+      font-family: 'Raleway', sans-serif; /* Botões em Raleway */
+    }
+
+    .btn-details:hover {
+      background-color: var(--rosa-claro); /* Hover em rosa claro para sutileza */
+    }
+
+    footer {
+      background-color: var(--preto-absoluto);
+      color: var(--branco);
+      text-align: center;
+      padding: 2rem;
+      margin-top: auto;
+      font-family: 'Montserrat', sans-serif; /* Footer em Montserrat */
+    }
+
+    .whatsapp-btn {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: var(--branco);
+      border-radius: 50%;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 1000;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: var(--rosa-fucsia); /* Hover em rosa fúcsia para consistência */
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .car-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <img src="imagens/priscila.jpg" width="200" height="100" alt="Logo Priscila Veiculos" class="logo" />
+  <nav aria-label="Menu principal">
+    <ul>
+      <li><a href="index.html" tabindex="0">Início</a></li>
+      <li><a href="marcas.html" tabindex="0">Marcas</a></li>
+      <li><a href="sobre.html" tabindex="0">Sobre</a></li>
+      <li><a href="contato.html" tabindex="0">Contato</a></li>
+    </ul>
+  </nav>
+  
+  <div class="horario-atendimento">
+    <p><i class="fas fa-clock"></i> Atendimento: Segunda a Sexta 08:00 - 18:00 | Sábado 09:00 - 15:00</p>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Priscila Veiculos</h1>
+    <p>Seu carro novo está aqui</p>
+  </section>
+
+  <section class="car-list">
+    <article class="car-card">
+      <img src="imagens/Golf.jpg" alt="Volkswagen Golf 2.0 TSI vermelho" class="car-image" />
+      <div class="car-info">
+        <h3>Volkswagen Golf 2.0 TSI</h3>
+        <div class="car-details">
+          <p><strong>Ano:</strong> 2023/2024</p>
+          <p><strong>KM:</strong> 12.000</p>
+          <p><strong>Câmbio:</strong> Automático</p>
+          <p><strong>Combustível:</strong> Gasolina</p>
+        </div>
+        <p class="car-price">R$ 145.900</p>
+        <a href="detalhes-golf.html" class="btn-details">Ver detalhes</a>
+      </div>
+    </article>
+
+    <article class="car-card">
+      <img src="imagens/Civic.jpeg" alt="Honda Civic Touring 1.5 Turbo prata" class="car-image" />
+      <div class="car-info">
+        <h3>Honda Civic Touring 1.5 Turbo</h3>
+        <div class="car-details">
+          <p><strong>Ano:</strong> 2022/2022</p>
+          <p><strong>KM:</strong> 25.000</p>
+          <p><strong>Câmbio:</strong> Automático</p>
+          <p><strong>Combustível:</strong> Gasolina</p>
+        </div>
+        <p class="car-price">R$ 125.800</p>
+        <a href="detalhes-civic.html" class="btn-details">Ver detalhes</a>
+      </div>
+    </article>
+
+    <article class="car-card">
+      <img src="imagens/Corolla.jpeg" alt="Toyota Corolla Altis Hybrid branco" class="car-image" />
+      <div class="car-info">
+        <h3>Toyota Corolla Altis Hybrid</h3>
+        <div class="car-details">
+          <p><strong>Ano:</strong> 2023/2023</p>
+          <p><strong>KM:</strong> 8.000</p>
+          <p><strong>Câmbio:</strong> Automático</p>
+          <p><strong>Combustível:</strong> Flex</p>
+        </div>
+        <p class="car-price">R$ 168.500</p>
+        <a href="detalhes-corolla.html" class="btn-details">Ver detalhes</a>
+      </div>
+    </article>
+
+    <article class="car-card">
+      <img src="imagens/Strada.jpeg" alt="Fiat Strada Freedom 1.3 prata" class="car-image" />
+      <div class="car-info">
+        <h3>Fiat Strada Freedom 1.3</h3>
+        <div class="car-details">
+          <p><strong>Ano:</strong> 2021/2022</p>
+          <p><strong>KM:</strong> 35.000</p>
+          <p><strong>Câmbio:</strong> Manual</p>
+          <p><strong>Combustível:</strong> Flex</p>
+        </div>
+        <p class="car-price">R$ 78.900</p>
+        <a href="detalhes-strada.html" class="btn-details">Ver detalhes</a>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2024 Priscila Veiculos. Todos os direitos reservados.</p>
+  <p>CNPJ: 12.345.678/0001-90</p>
+</footer>
+
+<a href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre os veículos da Priscila Veiculos." 
+   class="whatsapp-btn" 
+   target="_blank" 
+   aria-label="Fale conosco pelo WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Efeito de scroll suave
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Adicionar classe active ao menu atual
+    const currentPage = window.location.pathname.split('/').pop();
+    document.querySelectorAll('nav a').forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.style.color = 'var(--rosa-fucsia)';
+            link.style.borderBottom = '2px solid var(--rosa-fucsia)';
+        }
+    });
+});
+</script>
+</body>
+</html>
