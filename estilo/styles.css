@@ -1,228 +1,367 @@
 :root {
-    --rosa-fucsia: #e91e63;
-    --rosa-claro: #f8bbd9;
-    --preto: #000000;
-    --branco: #ffffff;
-    --cinza-claro: #f5f5f5;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Times New Roman', Times, serif;
-    background-color: var(--branco);
-    color: var(--preto);
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  a {
-    color: var(--rosa-fucsia);
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  a:hover,
-  a:focus {
-    color: var(--rosa-claro);
-  }
-  
+  --rosa-fucsia: #bf2a84;
+  --rosa-claro: #fefefe;
+  --preto: #333333;
+  --branco: #ffffff;
+  --cinza-claro: #fefefe;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background-color: var(--branco);
+  color: var(--preto);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--rosa-fucsia);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--rosa-claro);
+}
+
+header {
+  background-color: var(--branco);
+  border-bottom: 3px solid var(--rosa-fucsia);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem; /* Para espaçamento em wrap */
+}
+
+.logo {
+  max-width: 180px;
+  height: auto;
+  order: -1; /* Logo à esquerda, se adicionada */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav ul li a {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Estilos para horário de atendimento */
+.horario-atendimento {
+  font-size: 0.9rem;
+  color: var(--preto);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.horario-atendimento p {
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+main {
+  flex: 1;
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 1rem;
+}
+
+.hero h1 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--rosa-fucsia);
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--preto);
+}
+
+/* Lista de carros (do index.html) */
+.car-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.car-card {
+  background-color: var(--cinza-claro);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.car-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background-color: var(--rosa-claro);
+}
+
+.car-info {
+  padding: 1rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.car-info h3 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--preto);
+}
+
+.car-details {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.9rem;
+  color: var(--preto);
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.car-price {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--rosa-fucsia);
+  margin-bottom: 1rem;
+}
+
+.btn-details {
+  background-color: var(--rosa-fucsia);
+  color: var(--branco);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: 'Times New Roman', Times, serif;
+  display: block; /* Para centralizar em alguns contextos */
+  margin: 0 auto;
+}
+
+.btn-details:hover {
+  background-color: var(--rosa-claro);
+  color: var(--rosa-fucsia);
+}
+
+/* Nova lista de marcas (para marcas.html) */
+.marca-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.marca-card {
+  background-color: var(--cinza-claro);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.marca-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Imagem no card de marca (reutiliza car-image) */
+.marca-card .car-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background-color: var(--rosa-claro);
+}
+
+/* Info da marca */
+.marca-info {
+  padding: 1rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.marca-info h3 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.5rem; /* Maior para destaque da marca */
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  color: var(--rosa-fucsia); /* Cor de destaque */
+  text-align: center; /* Centraliza o nome da marca */
+}
+
+.marca-info .car-details {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.9rem;
+  color: var(--preto);
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+/* Preço no card de marca (reutiliza car-price) */
+.marca-card .car-price {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--rosa-fucsia);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Botão no card de marca (reutiliza btn-details) */
+.marca-card .btn-details {
+  background-color: var(--rosa-fucsia);
+  color: var(--branco);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: 'Times New Roman', Times, serif;
+  display: block;
+  margin: 0 auto;
+}
+
+.marca-card .btn-details:hover {
+  background-color: var(--rosa-claro);
+  color: var(--rosa-fucsia);
+}
+
+footer {
+  background-color: var(--branco);
+  border-top: 3px solid var(--rosa-fucsia);
+  color: var(--preto);
+  text-align: center;
+  padding: 2rem;
+  margin-top: auto;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.whatsapp-btn {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: var(--branco);
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-btn:hover {
+  background-color: var(--branco);
+  color: #25d366;
+  transform: scale(1.1);
+}
+
+/* Media Queries Responsivas (completas) */
+@media (max-width: 768px) {
   header {
-    background-color: var(--branco);
-    border-bottom: 3px solid var(--rosa-fucsia);
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
   }
-  
+
   .logo {
-    max-width: 180px;
-    height: auto;
+    order: 0;
+    max-width: 150px;
   }
-  
+
+  .horario-atendimento {
+    text-align: center;
+    order: 1;
+  }
+
   nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 1rem;
   }
-  
-  nav ul li a {
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 600;
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
     font-size: 1rem;
   }
-  
-  main {
-    flex: 1;
-    max-width: 1100px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+
+  .car-list,
+  .marca-list {
+    grid-template-columns: 1fr;
+    padding: 0 0.5rem;
   }
-  
-  .hero {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
-  .hero h1 {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 3rem;
-    font-weight: 900;
-    color: var(--rosa-fucsia);
-    margin-bottom: 1rem;
-  }
-  
-  .hero p {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.25rem;
-    font-style: italic;
-    color: var(--preto);
-  }
-  
-  .car-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-  
-  .car-card {
-    background-color: var(--cinza-claro);
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .car-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  }
-  
-  .car-image {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    background-color: var(--rosa-claro);
-  }
-  
-  .car-info {
-    padding: 1rem 1.5rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .car-info h3 {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: var(--preto);
-  }
-  
-  .car-details {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 0.9rem;
-    color: var(--preto);
-    margin-bottom: 1rem;
-    flex: 1;
-  }
-  
-  .car-price {
-    font-family: 'Times New Roman', Times, serif;
+
+  .marca-info h3 {
     font-size: 1.3rem;
-    font-weight: 900;
-    color: var(--rosa-fucsia);
-    margin-bottom: 1rem;
   }
-  
-  .btn-details {
-    background-color: var(--rosa-fucsia);
-    color: var(--branco);
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 4px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-family: 'Times New Roman', Times, serif;
+
+  main {
+    margin: 1rem auto;
+    padding: 0 0.5rem;
   }
-  
-  .btn-details:hover {
-    background-color: var(--rosa-claro);
-    color: var(--rosa-fucsia);
+
+  .hero {
+    padding: 0.5rem;
+    margin-bottom: 2rem;
   }
-  
-  footer {
-    background-color: var(--branco);
-    border-top: 3px solid var(--rosa-fucsia);
-    color: var(--preto);
-    text-align: center;
-    padding: 2rem;
-    margin-top: auto;
-    font-family: 'Times New Roman', Times, serif;
-  }
-  
-  .whatsapp-btn {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366;
-    color: var(--branco);
-    border-radius: 50%;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    z-index: 1000;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .whatsapp-btn:hover {
-    background-color: var(--branco);
-    color: #25d366;
-    transform: scale(1.1);
-    
-  }
-  
-  @media (max-width: 768px) {
-    header {
-      flex-direction: column;
-      text-align: center;
-      gap: 1rem;
-    }
-  
-    nav ul {
-      flex-direction: column;
-      gap: 1rem;
-    }
-  
-    .hero h1 {
-      font-size: 2rem;
-    }
-  
-    .hero p {
-      font-size: 1rem;
-    }
-  
-    .car-list {
-      grid-template-columns: 1fr;
-    }
-  }
+}

@@ -3,15 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Priscila Veiculos - Seu carro novo está aqui</title>
+  <title>Marcas - Priscila Veiculos</title>
+  <!-- Font Awesome para ícones (relógio e WhatsApp) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="estilo/styles.css"/>
-  </head>
+</head>
 <body>
 <header>
+  <!-- Opcional: Adicione logo aqui se quiser (substitua src pela sua imagem) -->
+  <!-- <img src="imagens/logo.png" alt="Logo Priscila Veículos" class="logo"> -->
+  
   <nav aria-label="Menu principal">
     <ul>
       <li><a href="index.html" tabindex="0">Início</a></li>
-      <li><a href="marcas/marcas.html" tabindex="0">Marcas</a></li>
+      <li><a href="marcas.html" tabindex="0">Marcas</a></li>
       <li><a href="sobre.html" tabindex="0">Sobre</a></li>
       <li><a href="contato.html" tabindex="0">Contato</a></li>
     </ul>
@@ -24,15 +29,19 @@
 
 <main>
   <section class="hero">
-    <img src="imagens/hero.png" alt="Logo interativo" height="100%" width="50%" class="hero"/>
+    <!-- Hero simples com título e descrição para a página de marcas -->
+    <h1>Nossas Marcas</h1>
+    <p>Conheça as principais marcas de veículos disponíveis na Priscila Veículos. Cada uma com opções de qualidade e inovação.</p>
   </section>
 
-  <section class="car-list">
-    <article class="car-card">
-      <img src="imagens/Golf.jpg" alt="Volkswagen Golf 2.0 TSI vermelho" class="car-image" />
-      <div class="car-info">
-        <h3>Volkswagen Golf 2.0 TSI</h3>
+  <section class="marca-list">
+    <!-- Card para Volkswagen -->
+    <article class="marca-card">
+      <img src="imagens/Golf.jpg" alt="Volkswagen Golf 2.0 TSI - Representante da marca Volkswagen" class="car-image" />
+      <div class="marca-info">
+        <h3>Volkswagen</h3>
         <div class="car-details">
+          <p><strong>Modelo em Destaque:</strong> Golf 2.0 TSI</p>
           <p><strong>Ano:</strong> 2023/2024</p>
           <p><strong>KM:</strong> 12.000</p>
           <p><strong>Câmbio:</strong> Automático</p>
@@ -43,11 +52,13 @@
       </div>
     </article>
 
-    <article class="car-card">
-      <img src="imagens/Civic.jpeg" alt="Honda Civic Touring 1.5 Turbo prata" class="car-image" />
-      <div class="car-info">
-        <h3>Honda Civic Touring 1.5 Turbo</h3>
+    <!-- Card para Honda -->
+    <article class="marca-card">
+      <img src="imagens/Civic.jpeg" alt="Honda Civic Touring 1.5 Turbo - Representante da marca Honda" class="car-image" />
+      <div class="marca-info">
+        <h3>Honda</h3>
         <div class="car-details">
+          <p><strong>Modelo em Destaque:</strong> Civic Touring 1.5 Turbo</p>
           <p><strong>Ano:</strong> 2022/2022</p>
           <p><strong>KM:</strong> 25.000</p>
           <p><strong>Câmbio:</strong> Automático</p>
@@ -58,11 +69,13 @@
       </div>
     </article>
 
-    <article class="car-card">
-      <img src="imagens/Corolla.jpeg" alt="Toyota Corolla Altis Hybrid branco" class="car-image" />
-      <div class="car-info">
-        <h3>Toyota Corolla Altis Hybrid</h3>
+    <!-- Card para Toyota -->
+    <article class="marca-card">
+      <img src="imagens/Corolla.jpeg" alt="Toyota Corolla Altis Hybrid - Representante da marca Toyota" class="car-image" />
+      <div class="marca-info">
+        <h3>Toyota</h3>
         <div class="car-details">
+          <p><strong>Modelo em Destaque:</strong> Corolla Altis Hybrid</p>
           <p><strong>Ano:</strong> 2023/2023</p>
           <p><strong>KM:</strong> 8.000</p>
           <p><strong>Câmbio:</strong> Automático</p>
@@ -73,11 +86,13 @@
       </div>
     </article>
 
-    <article class="car-card">
-      <img src="imagens/Strada.jpeg" alt="Fiat Strada Freedom 1.3 prata" class="car-image" />
-      <div class="car-info">
-        <h3>Fiat Strada Freedom 1.3</h3>
+    <!-- Card para Fiat -->
+    <article class="marca-card">
+      <img src="imagens/Strada.jpeg" alt="Fiat Strada Freedom 1.3 - Representante da marca Fiat" class="car-image" />
+      <div class="marca-info">
+        <h3>Fiat</h3>
         <div class="car-details">
+          <p><strong>Modelo em Destaque:</strong> Strada Freedom 1.3</p>
           <p><strong>Ano:</strong> 2021/2022</p>
           <p><strong>KM:</strong> 35.000</p>
           <p><strong>Câmbio:</strong> Manual</p>
@@ -118,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Adicionar classe active ao menu atual
+    // Adicionar classe active ao menu atual (destaca "Marcas" nesta página)
     const currentPage = window.location.pathname.split('/').pop();
     document.querySelectorAll('nav a').forEach(link => {
         if (link.getAttribute('href') === currentPage) {
