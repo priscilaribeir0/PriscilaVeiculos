@@ -222,7 +222,7 @@ Nossa História
 
   
 
-A Ribeiro Multimarcas nasceu em 2020, durante a pandemia, com o objetivo de criar um espaço inovador no mercado automotivo. A fundadora percebeu a necessidade de oferecer um ambiente acolhedor e seguro para mulheres na hora de comprar ou trocar de carro. 
+A Priscila Veículos nasceu em 2020, durante a pandemia, com o objetivo de criar um espaço inovador no mercado automotivo. A fundadora percebeu a necessidade de oferecer um ambiente acolhedor e seguro para mulheres na hora de comprar ou trocar de carro. 
 
   
 
