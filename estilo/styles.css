@@ -187,8 +187,7 @@ main {
   background-color: var(--rosa-claro);
   color: var(--rosa-fucsia);
 }
-
-/* Nova lista de marcas (para marcas.html) */
+/* Lista de marcas (adaptado para o catálogo) */
 .marca-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -244,6 +243,7 @@ main {
   color: var(--preto);
   margin-bottom: 1rem;
   flex: 1;
+  text-align: center;
 }
 
 /* Preço no card de marca (reutiliza car-price) */
@@ -256,7 +256,7 @@ main {
   text-align: center;
 }
 
-/* Botão no card de marca (reutiliza btn-details) */
+/* Botão no card de marca */
 .marca-card .btn-details {
   background-color: var(--rosa-fucsia);
   color: var(--branco);
@@ -272,6 +272,7 @@ main {
   font-family: 'Times New Roman', Times, serif;
   display: block;
   margin: 0 auto;
+  text-decoration: none;
 }
 
 .marca-card .btn-details:hover {
@@ -306,6 +307,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
 
 .whatsapp-btn:hover {
@@ -345,7 +347,6 @@ footer {
     font-size: 1rem;
   }
 
-  .car-list,
   .marca-list {
     grid-template-columns: 1fr;
     padding: 0 0.5rem;
