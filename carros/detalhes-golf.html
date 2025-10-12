@@ -3,40 +3,598 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Priscila Veículos</title>
-  <link rel="stylesheet" href="styles.css" />
-
+  <title>Volkswagen Golf 2.0 TSI - Priscila Veiculos</title>
+  <link rel="stylesheet" href="../estilo/styles.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .car-detail-container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    /* Seção inicial - Imagem grande */
+    .car-hero-section {
+      position: relative;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    
+    .car-hero-image {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .car-hero-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      padding: 3rem 2rem 2rem;
+      color: white;
+    }
+    
+    .car-hero-title {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+    
+    .car-hero-price {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--rosa-fucsia);
+      margin-bottom: 1.5rem;
+    }
+    
+    .btn-expand-details {
+      background-color: var(--rosa-fucsia);
+      color: var(--branco);
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: 0 4px 15px rgba(191, 42, 132, 0.3);
+    }
+    
+    .btn-expand-details:hover {
+      background-color: var(--branco);
+      color: var(--rosa-fucsia);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(191, 42, 132, 0.4);
+    }
+    
+    /* Seção de detalhes (inicialmente escondida) */
+    .car-details-section {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.8s ease, opacity 0.5s ease;
+      opacity: 0;
+    }
+    
+    .car-details-section.expanded {
+      max-height: 2000px;
+      opacity: 1;
+    }
+    
+    .car-detail-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .car-detail-specs {
+      background-color: var(--cinza-claro);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+    
+    .car-detail-specs h3 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--preto);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--rosa-fucsia);
+      padding-bottom: 0.5rem;
+    }
+    
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .spec-label {
+      font-weight: 700;
+      color: var(--preto);
+      margin-bottom: 0.25rem;
+    }
+    
+    .spec-value {
+      color: var(--preto);
+    }
+    
+    .car-description {
+      background-color: var(--cinza-claro);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+    
+    .car-description h3 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--preto);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--rosa-fucsia);
+      padding-bottom: 0.5rem;
+    }
+    
+    .car-description p {
+      line-height: 1.6;
+      color: var(--preto);
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .btn-contact {
+      background-color: var(--rosa-fucsia);
+      color: var(--branco);
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: 'Times New Roman', Times, serif;
+      flex: 1;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    .btn-contact:hover {
+      background-color: var(--rosa-claro);
+      color: var(--rosa-fucsia);
+    }
+    
+    .btn-whatsapp {
+      background-color: #25d366;
+    }
+    
+    .btn-whatsapp:hover {
+      background-color: var(--branco);
+      color: #25d366;
+    }
+    
+    .car-highlights {
+      background-color: var(--cinza-claro);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+    
+    .car-highlights h3 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--preto);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--rosa-fucsia);
+      padding-bottom: 0.5rem;
+    }
+    
+    .highlights-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    
+    .highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .highlight-item i {
+      color: var(--rosa-fucsia);
+    }
+    
+    .performance-features {
+      background: linear-gradient(135deg, var(--rosa-claro) 0%, var(--branco) 100%);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      border-left: 4px solid var(--rosa-fucsia);
+    }
+    
+    .performance-features h3 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--preto);
+      margin-bottom: 1rem;
+    }
+    
+    .performance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .performance-item {
+      text-align: center;
+      padding: 1rem;
+    }
+    
+    .performance-icon {
+      font-size: 2rem;
+      color: var(--rosa-fucsia);
+      margin-bottom: 0.5rem;
+    }
+    
+    .performance-title {
+      font-weight: 700;
+      color: var(--preto);
+      margin-bottom: 0.5rem;
+    }
+    
+    .performance-description {
+      color: var(--preto);
+      font-size: 0.9rem;
+    }
+    
+    /* Indicador de scroll */
+    .scroll-indicator {
+      text-align: center;
+      margin: 1rem 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .scroll-indicator.visible {
+      opacity: 1;
+    }
+    
+    .scroll-indicator i {
+      color: var(--rosa-fucsia);
+      font-size: 1.5rem;
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+    
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .car-hero-image {
+        height: 300px;
+      }
+      
+      .car-hero-title {
+        font-size: 2rem;
+      }
+      
+      .car-hero-price {
+        font-size: 1.5rem;
+      }
+      
+      .car-detail-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .specs-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+      }
+      
+      .highlights-list {
+        grid-template-columns: 1fr;
+      }
+      
+      .performance-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 <header>
-  <div class="logo">PRISCILA VEICULOS</div>
   <nav aria-label="Menu principal">
     <ul>
-      <li><a href="index.html" tabindex="0">Início</a></li>
-      <li><a href="marcas.html" tabindex="0">Marcas</a></li>
-      <li><a href="sobre.html" tabindex="0">Sobre</a></li>
-      <li><a href="contato.html" tabindex="0">Contato</a></li>
+      <li><a href="../index.html" tabindex="0" style="color: var(--rosa-fucsia); font-weight: bold;">Início</a></li>
+      <li><a href="../marcas/marcas.html" tabindex="0">Marcas</a></li>
+      <li><a href="../menu/sobre.html" tabindex="0">Sobre</a></li>
+      <li><a href="../menu/contato.html" tabindex="0">Contato</a></li>
+      <li><a href="../menu/cadastro.html" tabindex="0">Cadastro</a></li>
     </ul>
   </nav>
+  
+  <div class="horario-atendimento">
+    <p><i class="fas fa-clock"></i> Atendimento: Segunda a Sexta 08:00 - 18:00 | Sábado 09:00 - 15:00</p>
+  </div>
 </header>
 
-  <main>
-    <section class="car-detail-container" aria-label="Detalhes do Volkswagen Golf 2.0 TSI">
-      <img src="imagens/Golf.jpg" alt="Volkswagen Golf 2.0 TSI vermelho" class="car-image" />
-      <div class="car-info">
-        <h1>Volkswagen Golf 2.0 TSI</h1>
-        <p><strong>Ano:</strong> 2023/2024</p>
-        <p><strong>Quilometragem:</strong> 12.000 km</p>
-        <p><strong>Câmbio:</strong> Automático</p>
-        <p class="car-price">R$ 145.900</p>
-        <p>O Volkswagen Golf 2.0 TSI é um hatch esportivo que combina desempenho, conforto e tecnologia. Ideal para quem busca um carro versátil, com design moderno e excelente dirigibilidade.</p>
-        <button class="btn-back" onclick="window.history.back()" aria-label="Voltar para a lista de carros">Voltar</button>
+<main>
+  <div class="car-detail-container">
+    <!-- Seção Hero com imagem grande -->
+    <section class="car-hero-section">
+      <img src="../imagens/Golf.jpg" alt="Volkswagen Golf 2.0 TSI vermelho" class="car-hero-image" />
+      <div class="car-hero-overlay">
+        <h1 class="car-hero-title">Volkswagen Golf 2.0 TSI</h1>
+        <p class="car-hero-price">R$ 145.900</p>
+        <button class="btn-expand-details" id="btnExpandDetails">
+          <i class="fas fa-chevron-down"></i>
+          Ver Detalhes Completos
+        </button>
       </div>
     </section>
-  </main>
 
-  <footer>
-    &copy; 2024 Priscila Veiculos. Todos os direitos reservados.
-  </footer>
+    <!-- Indicador de scroll (aparece após expandir) -->
+    <div class="scroll-indicator" id="scrollIndicator">
+      <i class="fas fa-chevron-down"></i>
+      <p>Role para ver mais detalhes</p>
+    </div>
+
+    <!-- Seção de detalhes (expandível) -->
+    <section class="car-details-section" id="carDetailsSection">
+      <div class="car-detail-content">
+        <div class="car-detail-info">
+          <div class="car-detail-specs">
+            <h3>Especificações</h3>
+            <div class="specs-grid">
+              <div class="spec-item">
+                <span class="spec-label">Ano</span>
+                <span class="spec-value">2023/2024</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Quilometragem</span>
+                <span class="spec-value">12.000 km</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Câmbio</span>
+                <span class="spec-value">Automático DSG</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Combustível</span>
+                <span class="spec-value">Gasolina</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Cor</span>
+                <span class="spec-value">Vermelho</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Portas</span>
+                <span class="spec-value">4</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Final da Placa</span>
+                <span class="spec-value">8</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Único Dono</span>
+                <span class="spec-value">Sim</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="performance-features">
+            <h3>Performance e Tecnologia</h3>
+            <div class="performance-grid">
+              <div class="performance-item">
+                <div class="performance-icon">
+                  <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <div class="performance-title">Motor 2.0 TSI</div>
+                <div class="performance-description">220 cv de potência com turbo</div>
+              </div>
+              <div class="performance-item">
+                <div class="performance-icon">
+                  <i class="fas fa-bolt"></i>
+                </div>
+                <div class="performance-title">Câmbio DSG</div>
+                <div class="performance-description">7 marchas com trocas ultrarrápidas</div>
+              </div>
+              <div class="performance-item">
+                <div class="performance-icon">
+                  <i class="fas fa-road"></i>
+                </div>
+                <div class="performance-title">Suspensão Esportiva</div>
+                <div class="performance-description">Dirigibilidade precisa e esportiva</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="car-features">
+          <div class="car-highlights">
+            <h3>Destaques do Veículo</h3>
+            <div class="highlights-list">
+              <div class="highlight-item">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Motor 2.0 TSI 220 cv</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-cogs"></i>
+                <span>Câmbio DSG de 7 marchas</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-wind"></i>
+                <span>Ar-condicionado digital dual zone</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-tv"></i>
+                <span>Tela multimídia 10"</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-camera"></i>
+                <span>Câmera de ré com sensores</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-lightbulb"></i>
+                <span>Full LED em todos os faróis</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>Volkswagen IQ.DRIVE</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-key"></i>
+                <span>Keyless access e partida por botão</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="action-buttons">
+            <a href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre o Volkswagen Golf 2.0 TSI." 
+               class="btn-contact btn-whatsapp" 
+               target="_blank">
+              <i class="fab fa-whatsapp"></i> Fale Conosco
+            </a>
+            <a href="../menu/contato.html" class="btn-contact">
+              <i class="fas fa-envelope"></i> Solicitar Informações
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="car-description">
+        <h3>Sobre este veículo</h3>
+        <p>O Volkswagen Golf 2.0 TSI é um hatch esportivo que combina desempenho, conforto e tecnologia. Ideal para quem busca um carro versátil, com design moderno e excelente dirigibilidade.</p>
+        <p>Com apenas 12.000 km rodados, este Golf está em estado de conservação excelente, mantido com todos os cuidados em concessionária autorizada. Equipado com o potente motor 2.0 TSI que desenvolve 220 cv, oferece performance esportiva com o refinamento característico da marca alemã.</p>
+        <p>O câmbio DSG de dupla embreagem e 7 marchas proporciona trocas rápidas e suaves, enquanto a suspensão esportiva garante estabilidade e precisão nas curvas. O interior surpreende pelo acabamento premium, com materiais de alta qualidade e ergonomia perfeita.</p>
+        <p>O sistema de infotainment conta com tela de 10 polegadas, conectividade Apple CarPlay e Android Auto, e som premium. A segurança é garantida pelo pacote IQ.DRIVE, que inclui assistente de permanência em faixa, controle de cruzeiro adaptativo e frenagem automática de emergência.</p>
+        <p>Ideal para quem busca um hatch premium com DNA esportivo, tecnologia de ponta e o tradicional acabamento alemão. Agende já um test drive e experimente a emoção de dirigir um Volkswagen Golf 2.0 TSI!</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2024 Priscila Veiculos. Todos os direitos reservados.</p>
+  <p>CNPJ: 12.345.678/0001-90</p>
+</footer>
+
+<a href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre os veículos da Priscila Veiculos." 
+   class="whatsapp-btn" 
+   target="_blank" 
+   aria-label="Fale conosco pelo WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const btnExpand = document.getElementById('btnExpandDetails');
+    const detailsSection = document.getElementById('carDetailsSection');
+    const scrollIndicator = document.getElementById('scrollIndicator');
+    let isExpanded = false;
+
+    // Efeito de expandir detalhes
+    btnExpand.addEventListener('click', function() {
+        if (!isExpanded) {
+            // Expandir
+            detailsSection.classList.add('expanded');
+            btnExpand.innerHTML = '<i class="fas fa-chevron-up"></i> Ocultar Detalhes';
+            isExpanded = true;
+            
+            // Mostrar indicador de scroll após um delay
+            setTimeout(() => {
+                scrollIndicator.classList.add('visible');
+            }, 800);
+            
+            // Scroll suave para a seção expandida
+            setTimeout(() => {
+                detailsSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 400);
+        } else {
+            // Recolher
+            detailsSection.classList.remove('expanded');
+            btnExpand.innerHTML = '<i class="fas fa-chevron-down"></i> Ver Detalhes Completos';
+            scrollIndicator.classList.remove('visible');
+            isExpanded = false;
+            
+            // Scroll de volta para o topo
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    });
+
+    // Scroll suave para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Menu ativo
+    const currentPage = window.location.pathname.split('/').pop();
+    document.querySelectorAll('nav a').forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.style.color = 'var(--rosa-fucsia)';
+            link.style.borderBottom = '2px solid var(--rosa-fucsia)';
+        }
+    });
+});
+</script>
 </body>
 </html>
