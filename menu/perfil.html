@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meu Perfil - Priscila Veiculos</title>
+  <link rel="stylesheet" href="../estilo/styles.css"/>
+  <style>
+    .profile-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .profile-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .profile-header h1 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 2.5rem;
+      color: var(--rosa-fucsia);
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+    }
+
+    .profile-section {
+      background-color: var(--cinza-claro);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--rosa-fucsia);
+      padding-bottom: 0.5rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.5rem;
+      color: var(--rosa-fucsia);
+      font-weight: 700;
+    }
+
+    .btn-edit {
+      background-color: var(--rosa-fucsia);
+      color: var(--branco);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-edit:hover {
+      background-color: var(--rosa-claro);
+      color: var(--rosa-fucsia);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: 600;
+      color: var(--preto);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1rem;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--rosa-fucsia);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .interest-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .interest-tag {
+      background-color: var(--rosa-fucsia);
+      color: var(--branco);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .btn-add {
+      background-color: transparent;
+      color: var(--rosa-fucsia);
+      border: 2px solid var(--rosa-fucsia);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .btn-add:hover {
+      background-color: var(--rosa-fucsia);
+      color: var(--branco);
+    }
+
+    .profile-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn-save {
+      background-color: var(--rosa-fucsia);
+      color: var(--branco);
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      flex: 1;
+    }
+
+    .btn-save:hover {
+      background-color: var(--rosa-claro);
+      color: var(--rosa-fucsia);
+    }
+
+    .btn-logout {
+      background-color: transparent;
+      color: var(--rosa-fucsia);
+      border: 2px solid var(--rosa-fucsia);
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      flex: 1;
+    }
+
+    .btn-logout:hover {
+      background-color: var(--rosa-fucsia);
+      color: var(--branco);
+    }
+
+    .readonly {
+      background-color: #f8f8f8;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .profile-container {
+        margin: 1rem auto;
+      }
+
+      .profile-section {
+        padding: 1.5rem;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-actions {
+        flex-direction: column;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav aria-label="Menu principal">
+    <ul>
+      <li><a href="../index.html" tabindex="0">Início</a></li>
+      <li><a href="../marcas/marcas.html" tabindex="0">Marcas</a></li>
+      <li><a href="sobre.html" tabindex="0">Sobre</a></li>
+      <li><a href="contato.html" tabindex="0">Contato</a></li>
+      <li><a href="cadastro.html" tabindex="0">Cadastro</a></li>
+      <li><a href="login.html" tabindex="0">Login</a></li>
+    </ul>
+  </nav>
+        </div>
+    <a href="menu/perfil.html" class="btn-perfil">
+      <strong>Meu Perfil</strong>
+    </a>
+  </div>
+  <div class="horario-atendimento">
+    <p><i class="fas fa-clock"></i> Atendimento: Segunda a Sexta 08:00 - 18:00 | Sábado 09:00 - 15:00</p>
+  </div>
+</header>
+
+<main>
+  <div class="profile-container">
+    <div class="profile-header">
+      <h1>Meu Perfil</h1>
+      <p>Gerencie suas informações pessoais e preferências</p>
+    </div>
+
+    <form id="profileForm">
+      <!-- Seção Dados Pessoais -->
+      <section class="profile-section">
+        <div class="section-header">
+          <h2>Dados Pessoais</h2>
+          <button type="button" class="btn-edit" onclick="toggleEdit('personalData')">Editar</button>
+        </div>
+        <div class="form-grid" id="personalData">
+          <div class="form-group">
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" name="nome" value="Maria Silva" readonly class="readonly">
+          </div>
+          <div class="form-group">
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" value="123.456.789-00" readonly class="readonly">
+          </div>
+          <div class="form-group">
+            <label for="dataNascimento">Data de Nascimento:</label>
+            <input type="date" id="dataNascimento" name="dataNascimento" value="1985-05-15" readonly class="readonly">
+          </div>
+          <div class="form-group">
+            <label for="genero">Gênero:</label>
+            <select id="genero" name="genero" disabled>
+              <option value="feminino" selected>Feminino</option>
+              <option value="masculino">Masculino</option>
+              <option value="outro">Outro</option>
+              <option value="prefiro-nao-informar">Prefiro não informar</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção Contato -->
+      <section class="profile-section">
+        <div class="section-header">
+          <h2>Informações de Contato</h2>
+          <button type="button" class="btn-edit" onclick="toggleEdit('contactInfo')">Editar</button>
+        </div>
+        <div class="form-grid" id="contactInfo">
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" value="maria.silva@email.com" readonly class="readonly">
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" value="(11) 99999-9999" readonly class="readonly">
+          </div>
+          <div class="form-group">
+            <label for="celular">Celular:</label>
+            <input type="tel" id="celular" name="celular" value="(11) 98888-8888" readonly class="readonly">
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção Endereço -->
+      <section class="profile-section">
+        <div class="section-header">
+          <h2>Endereço</h2>
+          <button type="button" class="btn-edit" onclick="toggleEdit('addressInfo')">Editar</button>
+        </div>
+        <div class="form-grid" id="addressInfo">
+          <div class="form-group">
+            <label for="cep">CEP:</label>
+            <input type="text" id="cep" name="cep" value="01234-567" readonly class="readonly">
+          </div>
+          <div class="form-group">
+            <label for="logradouro">Logradouro:</label>
+            <input type="text" id="logradouro" name="logradouro" value="Rua das Flores" readonly class="readonly">
+          </div>
+          <div class="form-group">
+            <label for="numero">Número:</label>
+            <input type="text" id="numero" name="numero" value="123" readonly class="readonly">
+          </div>
+          <div class="form-group">
+            <label for="complemento">Complemento:</label>
+            <input type="text" id="complemento" name="complemento" value="Apto 45" readonly class="readonly">
+          </div>
+          <div class="form-group">
+            <label for="bairro">Bairro:</label>
+            <input type="text" id="bairro" name="bairro" value="Centro" readonly class="readonly">
+          </div>
+          <div class="form-group">
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" name="cidade" value="São Paulo" readonly class="readonly">
+          </div>
+          <div class="form-group">
+            <label for="estado">Estado:</label>
+            <select id="estado" name="estado" disabled>
+              <option value="SP" selected>São Paulo</option>
+              <!-- Outros estados -->
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção Interesses -->
+      <section class="profile-section">
+        <div class="section-header">
+          <h2>Interesses em Veículos</h2>
+          <button type="button" class="btn-edit" onclick="toggleEdit('interestsInfo')">Editar</button>
+        </div>
+        <div id="interestsInfo">
+          <div class="form-group">
+            <label for="novoInteresse">Adicionar Interesse:</label>
+            <input type="text" id="novoInteresse" name="novoInteresse" placeholder="Ex: SUV, Automático, Vermelho" readonly class="readonly">
+            <button type="button" class="btn-add" onclick="adicionarInteresse()" disabled>Adicionar Interesse</button>
+          </div>
+          <div class="interest-tags" id="listaInteresses">
+            <span class="interest-tag">SUV <button type="button" onclick="removerInteresse(this)" style="display: none;">×</button></span>
+            <span class="interest-tag">Automático <button type="button" onclick="removerInteresse(this)" style="display: none;">×</button></span>
+            <span class="interest-tag">Volkswagen <button type="button" onclick="removerInteresse(this)" style="display: none;">×</button></span>
+            <span class="interest-tag">2020-2023 <button type="button" onclick="removerInteresse(this)" style="display: none;">×</button></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ações do Perfil -->
+      <div class="profile-actions">
+        <button type="submit" class="btn-save">Salvar Alterações</button>
+        <button type="button" class="btn-logout" onclick="sair()">Sair</button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2024 Priscila Veiculos. Todos os direitos reservados.</p>
+  <p>CNPJ: 12.345.678/0001-90</p>
+</footer>
+
+<a href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre os veículos da Priscila Veiculos." 
+   class="whatsapp-btn" 
+   target="_blank" 
+   aria-label="Fale conosco pelo WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Adicionar classe active ao menu atual
+    const currentPage = window.location.pathname.split('/').pop();
+    document.querySelectorAll('nav a').forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.style.color = 'var(--rosa-fucsia)';
+        link.style.borderBottom = '2px solid var(--rosa-fucsia)';
+      }
+    });
+
+    // Validação do formulário
+    document.getElementById('profileForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      salvarAlteracoes();
+    });
+  });
+
+  // Função para alternar modo de edição
+  function toggleEdit(sectionId) {
+    const section = document.getElementById(sectionId);
+    const inputs = section.querySelectorAll('input, select, textarea, button');
+    const isEditing = inputs[0].readOnly || inputs[0].disabled;
+
+    inputs.forEach(input => {
+      if (input.type !== 'button') {
+        if (input.tagName === 'SELECT') {
+          input.disabled = !isEditing;
+        } else {
+          input.readOnly = !isEditing;
+          input.classList.toggle('readonly', !isEditing);
+        }
+      }
+    });
+
+    // Mostrar/ocultar botões de remover interesses
+    if (sectionId === 'interestsInfo') {
+      const removeButtons = document.querySelectorAll('.interest-tag button');
+      removeButtons.forEach(btn => {
+        btn.style.display = isEditing ? 'none' : 'inline';
+      });
+      
+      const addButton = document.querySelector('.btn-add');
+      const interesseInput = document.getElementById('novoInteresse');
+      if (addButton && interesseInput) {
+        addButton.disabled = isEditing;
+        interesseInput.readOnly = isEditing;
+        interesseInput.classList.toggle('readonly', isEditing);
+      }
+    }
+
+    // Atualizar texto do botão
+    const editButton = event.target;
+    editButton.textContent = isEditing ? 'Cancelar' : 'Editar';
+  }
+
+  // Função para adicionar interesse
+  function adicionarInteresse() {
+    const input = document.getElementById('novoInteresse');
+    const interesse = input.value.trim();
+    
+    if (interesse) {
+      const tag = document.createElement('span');
+      tag.className = 'interest-tag';
+      tag.innerHTML = `${interesse} <button type="button" onclick="removerInteresse(this)">×</button>`;
+      
+      document.getElementById('listaInteresses').appendChild(tag);
+      input.value = '';
+    }
+  }
+
+  // Função para remover interesse
+  function removerInteresse(button) {
+    button.parentElement.remove();
+  }
+
+  // Função para salvar alterações
+  function salvarAlteracoes() {
+    // Aqui você implementaria a lógica para salvar no backend
+    alert('Alterações salvas com sucesso!');
+    
+    // Voltar todos os campos para modo leitura
+    document.querySelectorAll('.btn-edit').forEach(btn => {
+      if (btn.textContent === 'Cancelar') {
+        btn.click();
+      }
+    });
+  }
+
+  // Função para sair (logout)
+  function sair() {
+    if (confirm('Tem certeza que deseja sair?')) {
+      // Limpar dados de login (simulação)
+      localStorage.removeItem('userToken');
+      sessionStorage.removeItem('userData');
+      
+      // Redirecionar para página inicial
+      window.location.href = '../index.html';
+    }
+  }
+</script>
+</body>
+</html>

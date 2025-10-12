@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recuperar Senha - Priscila Veiculos</title>
+  <link rel="stylesheet" href="../estilo/styles.css"/>
+  <style>
+    .recovery-container {
+      max-width: 400px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: var(--cinza-claro);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .recovery-container h2 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 2rem;
+      color: var(--rosa-fucsia);
+      margin-bottom: 1rem;
+      font-weight: 900;
+    }
+
+    .instructions {
+      color: var(--preto);
+      margin-bottom: 2rem;
+      line-height: 1.5;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: 600;
+      color: var(--preto);
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1rem;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--rosa-fucsia);
+    }
+
+    .btn-recovery {
+      width: 100%;
+      background-color: var(--rosa-fucsia);
+      color: var(--branco);
+      border: none;
+      padding: 1rem;
+      border-radius: 4px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .btn-recovery:hover {
+      background-color: var(--rosa-claro);
+      color: var(--rosa-fucsia);
+    }
+
+    .btn-back {
+      width: 100%;
+      background-color: transparent;
+      color: var(--rosa-fucsia);
+      border: 2px solid var(--rosa-fucsia);
+      padding: 0.8rem;
+      border-radius: 4px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-back:hover {
+      background-color: var(--rosa-fucsia);
+      color: var(--branco);
+    }
+
+    .success-message {
+      display: none;
+      background: #d4edda;
+      color: #155724;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+      border: 1px solid #c3e6cb;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .recovery-links {
+      margin-top: 1.5rem;
+    }
+
+    .recovery-links a {
+      color: var(--rosa-fucsia);
+      text-decoration: none;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .recovery-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .recovery-container {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav aria-label="Menu principal">
+    <ul>
+      <li><a href="../index.html" tabindex="0">Início</a></li>
+      <li><a href="../marcas/marcas.html" tabindex="0">Marcas</a></li>
+      <li><a href="sobre.html" tabindex="0">Sobre</a></li>
+      <li><a href="contato.html" tabindex="0">Contato</a></li>
+      <li><a href="cadastro.html" tabindex="0">Cadastro</a></li>
+      <li><a href="login.html" tabindex="0">Login</a></li>
+    </ul>
+  </nav>
+      </div>
+    <a href="menu/perfil.html" class="btn-perfil">
+      <strong>Meu Perfil</strong>
+    </a>
+  </div>
+  <div class="horario-atendimento">
+    <p><i class="fas fa-clock"></i> Atendimento: Segunda a Sexta 08:00 - 18:00 | Sábado 09:00 - 15:00</p>
+  </div>
+</header>
+
+<main>
+  <section class="recovery-container">
+    <h2>Recuperar Senha</h2>
+    <p class="instructions">Digite seu e-mail cadastrado e enviaremos um link para redefinir sua senha.</p>
+    
+    <div class="success-message" id="successMessage">
+      ✅ E-mail enviado com sucesso! Verifique sua caixa de entrada.
+    </div>
+
+    <form id="recoveryForm">
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+      </div>
+      
+      <button type="submit" class="btn-recovery">Enviar Link de Recuperação</button>
+    </form>
+
+    <button class="btn-back" onclick="window.location.href='login.html'">← Voltar para o Login</button>
+    
+    <div class="recovery-links">
+      <a href="cadastro.html">Ainda não tem conta? Cadastre-se</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2024 Priscila Veiculos. Todos os direitos reservados.</p>
+  <p>CNPJ: 12.345.678/0001-90</p>
+</footer>
+
+<a href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre os veículos da Priscila Veiculos." 
+   class="whatsapp-btn" 
+   target="_blank" 
+   aria-label="Fale conosco pelo WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Adicionar classe active ao menu atual
+    const currentPage = window.location.pathname.split('/').pop();
+    document.querySelectorAll('nav a').forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.style.color = 'var(--rosa-fucsia)';
+        link.style.borderBottom = '2px solid var(--rosa-fucsia)';
+      }
+    });
+
+    // Validação do formulário de recuperação
+    document.getElementById('recoveryForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      const successMessage = document.getElementById('successMessage');
+      
+      // Simulação do envio do e-mail
+      if(email) {
+        // Mostra mensagem de sucesso
+        successMessage.style.display = 'block';
+        
+        // Limpa o formulário
+        document.getElementById('recoveryForm').reset();
+        
+        // Opcional: Redirecionar após alguns segundos
+        setTimeout(() => {
+          // window.location.href = 'login.html';
+        }, 3000);
+      }
+    });
+
+    // Validação em tempo real do e-mail
+    document.getElementById('email').addEventListener('input', function() {
+      const email = this.value;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+      if (email && !emailRegex.test(email)) {
+        this.style.borderColor = 'red';
+      } else {
+        this.style.borderColor = '#ddd';
+      }
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Priscila Veiculos</title>
+  <link rel="stylesheet" href="../estilo/styles.css"/>
+  <style>
+    .login-container {
+      max-width: 400px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: var(--cinza-claro);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .login-container h2 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 2rem;
+      color: var(--rosa-fucsia);
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 900;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: 600;
+      color: var(--preto);
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1rem;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--rosa-fucsia);
+    }
+
+    .btn-login {
+      width: 100%;
+      background-color: var(--rosa-fucsia);
+      color: var(--branco);
+      border: none;
+      padding: 1rem;
+      border-radius: 4px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .btn-login:hover {
+      background-color: var(--rosa-claro);
+      color: var(--rosa-fucsia);
+    }
+
+    .login-links {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .login-links a {
+      color: var(--rosa-fucsia);
+      text-decoration: none;
+      margin: 0 0.5rem;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .login-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .login-container {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav aria-label="Menu principal">
+    <ul>
+      <li><a href="index.html" tabindex="0" style="color: var(--rosa-fucsia); font-weight: bold;">Início</a></li>
+      <li><a href="marcas/marcas.html" tabindex="0">Marcas</a></li>
+      <li><a href="menu/sobre.html" tabindex="0">Sobre</a></li>
+      <li><a href="menu/contato.html" tabindex="0">Contato</a></li>
+      <li><a href="menu/cadastro.html" tabindex="0">Cadastro</a></li>
+      <li><a href="menu/login.html" tabindex="0">Login</a></li>
+    </ul>
+  </nav>
+      </div>
+    <a href="menu/perfil.html" class="btn-perfil">
+      <img src="../imagens/icone_rosa.jpg" alt="Ícone de perfil" class="perfil-icone">
+      <strong>Meu Perfil</strong>
+    </a>
+  </div>
+  <div class="header-right">
+    <div class="horario-atendimento">
+      <p><i class="fas fa-clock"></i> Atendimento: Segunda a Sexta 08:00 - 18:00 | Sábado 09:00 - 15:00</p>
+
+</header>
+<main>
+  <section class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+      </div>
+      <div class="form-group">
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required placeholder="Sua senha">
+      </div>
+      <button type="submit" class="btn-login">Entrar</button>
+    </form>
+    
+    <div class="login-links">
+      <a href="recuperacao.html">Esqueci minha senha</a> | 
+      <a href="cadastro.html">Criar conta</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2024 Priscila Veiculos. Todos os direitos reservados.</p>
+  <p>CNPJ: 12.345.678/0001-90</p>
+</footer>
+
+<a href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre os veículos da Priscila Veiculos." 
+   class="whatsapp-btn" 
+   target="_blank" 
+   aria-label="Fale conosco pelo WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Adicionar classe active ao menu atual
+    const currentPage = window.location.pathname.split('/').pop();
+    document.querySelectorAll('nav a').forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.style.color = 'var(--rosa-fucsia)';
+        link.style.borderBottom = '2px solid var(--rosa-fucsia)';
+      }
+    });
+
+    // Validação do formulário de login
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      
+      // Aqui você pode adicionar a lógica de autenticação
+      console.log('Tentativa de login:', { email, password });
+      
+      // Exemplo simples de validação
+      if(email && password) {
+        alert('Login realizado com sucesso!');
+        // Redirecionar para outra página
+        // window.location.href = '../index.html';
+      }
+    });
+  });
+</script>
+</body>
+</html>
