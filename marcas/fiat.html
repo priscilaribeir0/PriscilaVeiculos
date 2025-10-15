@@ -3,9 +3,142 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Priscila Veiculos</title>
+  <title>Carros Fiat - Priscila Veiculos</title>
   <link rel="stylesheet" href="../estilo/styles.css" />
-
+  <style>
+    /* Estilos específicos para a página Fiat */
+    .marca-header {
+      background: linear-gradient(135deg, var(--rosa-fucsia), #d42a8c);
+      color: var(--branco);
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .marca-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .marca-header p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .car-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+    }
+    
+    .car-card {
+      background-color: var(--cinza-claro);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .car-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    .car-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background-color: var(--rosa-claro);
+    }
+    
+    .car-info {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .car-info h3 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--preto);
+    }
+    
+    .car-details {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 0.95rem;
+      color: var(--preto);
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+    
+    .car-price {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--rosa-fucsia);
+      margin-bottom: 1rem;
+    }
+    
+    .btn-details {
+      background-color: var(--rosa-fucsia);
+      color: var(--branco);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: 'Times New Roman', Times, serif;
+      display: block;
+      text-decoration: none;
+    }
+    
+    .btn-details:hover {
+      background-color: var(--rosa-claro);
+      color: var(--rosa-fucsia);
+    }
+    
+    .voltar-link {
+      display: inline-block;
+      margin: 1rem 0 2rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--preto);
+      color: var(--branco);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    
+    .voltar-link:hover {
+      background-color: var(--rosa-fucsia);
+    }
+    
+    @media (max-width: 768px) {
+      .marca-header h1 {
+        font-size: 2rem;
+      }
+      
+      .marca-header p {
+        font-size: 1rem;
+      }
+      
+      .car-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -16,19 +149,177 @@
         <li><a href="../menu/sobre.html" tabindex="0">Sobre</a></li>
         <li><a href="../menu/contato.html" tabindex="0">Contato</a></li>
         <li><a href="../menu/cadastro.html" tabindex="0">Cadastro</a></li>
-        <li><a href="menu/login.html" tabindex="0">Login</a></li>
+        <li><a href="../menu/login.html" tabindex="0">Login</a></li>
       </ul>
     </nav>
-    <div class="horario-atendimento">
-      <p><i class="fas fa-clock"></i> Atendimento: Segunda a Sexta 08:00 - 18:00 | Sábado 09:00 - 15:00</p>
+    <div class="header-right">
+      <div class="horario-atendimento">
+        <p><i class="fas fa-clock"></i> Atendimento: Segunda a Sexta 08:00 - 18:00 | Sábado 09:00 - 15:00</p>
+      </div>
+      <a href="../menu/perfil.html" class="btn-perfil">
+        <strong>Meu Perfil</strong>
+      </a>
     </div>
   </header>
 
+  <main>
+    <section class="marca-header">
+      <h1>Carros Fiat</h1>
+      <p>Conheça nossa seleção de veículos Fiat. Qualidade, conforto e tecnologia em cada modelo.</p>
+    </section>
     
-</body>
-<footer>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+      <a href="marcas.html" class="voltar-link">&larr; Voltar para Marcas</a>
+    </div>
+    
+    <section class="car-list">
+      <!-- Strada -->
+      <article class="car-card">
+        <img src="../imagens/strada.png" alt="Fiat Strada Freedom 1.3 prata" class="car-image" />
+        <div class="car-info">
+          <h3>Fiat Strada Freedom 1.3</h3>
+          <div class="car-details">
+            <p><strong>Ano:</strong> 2021/2022</p>
+            <p><strong>KM:</strong> 35.000</p>
+            <p><strong>Câmbio:</strong> Manual</p>
+            <p><strong>Combustível:</strong> Flex</p>
+            <p><strong>Portas:</strong> 2</p>
+            <p><strong>Cor:</strong> Prata</p>
+          </div>
+          <p class="car-price">R$ 78.900</p>
+          <a href="../carros/detalhes-strada.html" class="btn-details">Ver detalhes</a>
+        </div>
+      </article>
+      
+      <!-- Argo -->
+      <article class="car-card">
+        <img src="../imagens/argo.jpg" alt="Fiat Argo Drive 1.0" class="car-image" />
+        <div class="car-info">
+          <h3>Fiat Argo Drive 1.0</h3>
+          <div class="car-details">
+            <p><strong>Ano:</strong> 2022/2023</p>
+            <p><strong>KM:</strong> 22.000</p>
+            <p><strong>Câmbio:</strong> Manual</p>
+            <p><strong>Combustível:</strong> Flex</p>
+            <p><strong>Portas:</strong> 4</p>
+            <p><strong>Cor:</strong> Branco</p>
+          </div>
+          <p class="car-price">R$ 69.900</p>
+          <a href="../carros/detalhes-argo.html" class="btn-details">Ver detalhes</a>
+        </div>
+      </article>
+      
+      <!-- Mobi -->
+      <article class="car-card">
+        <img src="../imagens/mobi.jpg" alt="Fiat Mobi Like 1.0" class="car-image" />
+        <div class="car-info">
+          <h3>Fiat Mobi Like 1.0</h3>
+          <div class="car-details">
+            <p><strong>Ano:</strong> 2020/2021</p>
+            <p><strong>KM:</strong> 30.000</p>
+            <p><strong>Câmbio:</strong> Manual</p>
+            <p><strong>Combustível:</strong> Flex</p>
+            <p><strong>Portas:</strong> 4</p>
+            <p><strong>Cor:</strong> Vermelho</p>
+          </div>
+          <p class="car-price">R$ 49.900</p>
+          <a href="../carros/detalhes-mobi.html" class="btn-details">Ver detalhes</a>
+        </div>
+      </article>
+      
+      <!-- Cronos -->
+      <article class="car-card">
+        <img src="../imagens/cronos.jpg" alt="Fiat Cronos Drive 1.3" class="car-image" />
+        <div class="car-info">
+          <h3>Fiat Cronos Drive 1.3</h3>
+          <div class="car-details">
+            <p><strong>Ano:</strong> 2021/2022</p>
+            <p><strong>KM:</strong> 28.000</p>
+            <p><strong>Câmbio:</strong> Manual</p>
+            <p><strong>Combustível:</strong> Flex</p>
+            <p><strong>Portas:</strong> 4</p>
+            <p><strong>Cor:</strong> Cinza</p>
+          </div>
+          <p class="car-price">R$ 72.500</p>
+          <a href="../carros/detalhes-cronos.html" class="btn-details">Ver detalhes</a>
+        </div>
+      </article>
+      
+      <!-- Toro -->
+      <article class="car-card">
+        <img src="../imagens/toro.jpg" alt="Fiat Toro Freedom 1.8" class="car-image" />
+        <div class="car-info">
+          <h3>Fiat Toro Freedom 1.8</h3>
+          <div class="car-details">
+            <p><strong>Ano:</strong> 2022/2023</p>
+            <p><strong>KM:</strong> 18.000</p>
+            <p><strong>Câmbio:</strong> Automático</p>
+            <p><strong>Combustível:</strong> Flex</p>
+            <p><strong>Portas:</strong> 4</p>
+            <p><strong>Cor:</strong> Preto</p>
+          </div>
+          <p class="car-price">R$ 139.900</p>
+          <a href="../carros/detalhes-toro.html" class="btn-details">Ver detalhes</a>
+        </div>
+      </article>
+      
+      <!-- Pulse -->
+      <article class="car-card">
+        <img src="../imagens/pulse.jpg" alt="Fiat Pulse Audace 1.0 Turbo" class="car-image" />
+        <div class="car-info">
+          <h3>Fiat Pulse Audace 1.0 Turbo</h3>
+          <div class="car-details">
+            <p><strong>Ano:</strong> 2023/2023</p>
+            <p><strong>KM:</strong> 12.000</p>
+            <p><strong>Câmbio:</strong> Automático</p>
+            <p><strong>Combustível:</strong> Flex</p>
+            <p><strong>Portas:</strong> 4</p>
+            <p><strong>Cor:</strong> Azul</p>
+          </div>
+          <p class="car-price">R$ 109.900</p>
+          <a href="../carros/detalhes-pulse.html" class="btn-details">Ver detalhes</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
     <p>&copy; 2024 Priscila Veiculos. Todos os direitos reservados.</p>
     <p>CNPJ: 12.345.678/0001-90</p>
   </footer>
-  </body>
-  </html>
+
+  <a href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre os veículos Fiat da Priscila Veiculos." 
+     class="whatsapp-btn" 
+     target="_blank" 
+     aria-label="Fale conosco pelo WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Efeito de scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Adicionar classe active ao menu atual
+        const currentPage = window.location.pathname.split('/').pop();
+        document.querySelectorAll('nav a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.style.color = 'var(--rosa-fucsia)';
+                link.style.borderBottom = '2px solid var(--rosa-fucsia)';
+            }
+        });
+    });
+  </script>
+</body>
+</html>
