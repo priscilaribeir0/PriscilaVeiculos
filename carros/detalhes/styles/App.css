@@ -1,0 +1,14 @@
+/* Exemplo de estilos básicos */
+.car-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  text-align: center;
+}
+
+.car-details {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}

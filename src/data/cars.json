@@ -1,0 +1,28 @@
+{
+  "carros": [
+    {
+      "id": 1,
+      "nome": "Honda Civic",
+      "marca": "Honda",
+      "imagens": ["civic-1.jpg"],
+      "preco": 145990,
+      "ano": 2024,
+      "cambio": "Automático",
+      "combustivel": "Flex",
+      "portas": 4,
+      "categoria": "Sedan"
+    },
+    {
+      "id": 2, 
+      "nome": "Volkswagen Nivus",
+      "marca": "Volkswagen",
+      "imagens": ["nivus-1.jpg"],
+      "preco": 134990,
+      "ano": 2024, 
+      "cambio": "Automático",
+      "combustivel": "Flex", 
+      "portas": 4,
+      "categoria": "SUV Compacto"
+    }
+  ]
+}
